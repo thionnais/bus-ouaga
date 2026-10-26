@@ -1,0 +1,6 @@
+[
+  { "id": "s1", "name": "Place des Nations Unies", "lat": 12.3714, "lng": -1.5197 },
+  { "id": "s2", "name": "Arrêt exemple 2", "lat": 12.3650, "lng": -1.5300 },
+  { "id": "s3", "name": "Arrêt exemple 3", "lat": 12.3800, "lng": -1.5100 },
+  { "id": "s4", "name": "Arrêt exemple 4", "lat": 12.3900, "lng": -1.5000 }
+]

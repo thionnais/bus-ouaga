@@ -1,0 +1,4 @@
+[
+  { "id": "l1", "number": "1", "name": "Ligne exemple A", "stopIds": ["s1", "s2", "s3"] },
+  { "id": "l2", "number": "2", "name": "Ligne exemple B", "stopIds": ["s1", "s3", "s4"] }
+]
