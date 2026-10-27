@@ -1,0 +1,1 @@
+export const FARE_FCFA = 200;

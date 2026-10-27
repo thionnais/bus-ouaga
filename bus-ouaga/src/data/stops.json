@@ -1,6 +1,23 @@
 [
-  { "id": "s1", "name": "Place des Nations Unies", "lat": 12.3714, "lng": -1.5197 },
-  { "id": "s2", "name": "Arrêt exemple 2", "lat": 12.3650, "lng": -1.5300 },
-  { "id": "s3", "name": "Arrêt exemple 3", "lat": 12.3800, "lng": -1.5100 },
-  { "id": "s4", "name": "Arrêt exemple 4", "lat": 12.3900, "lng": -1.5000 }
+  { "id": "sogel-b", "name": "Station SOGEL B" },
+  { "id": "palais-justice", "name": "Palais de justice" },
+  { "id": "lycee-thomas-sankara", "name": "Lycée Thomas Sankara" },
+  { "id": "clinique-kassam", "name": "Clinique KASSAM" },
+  { "id": "pharmacie-magnificat", "name": "Pharmacie Magnificat" },
+  { "id": "station-fama", "name": "Station FAMA" },
+  { "id": "sogel-b-ancien-terminus", "name": "SOGEL B ancien terminus" },
+  { "id": "district-sanitaire-bogodogo", "name": "District sanitaire de Bogodogo" },
+  { "id": "siao", "name": "SIAO" },
+  { "id": "maison-de-la-femme", "name": "Maison de la Femme" },
+  { "id": "hopital-pediatrique", "name": "Hôpital pédiatrique" },
+  { "id": "av-charles-de-gaulle", "name": "Av. Charles de Gaulle" },
+  { "id": "sp-cnls", "name": "SP/CNLS" },
+  { "id": "ost", "name": "OST" },
+  { "id": "av-independance", "name": "Av. de l'indépendance" },
+  { "id": "tresor-public", "name": "Trésor public" },
+  { "id": "dg-police-nationale", "name": "DG Police Nationale" },
+  { "id": "sonapost-siege", "name": "SONAPOST siège" },
+  { "id": "maison-du-peuple", "name": "Maison du peuple" },
+  { "id": "naba-koom", "name": "Terminus Naba Koom" }
+  
 ]
