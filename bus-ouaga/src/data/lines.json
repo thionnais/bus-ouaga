@@ -44,5 +44,40 @@
         "backward": ["08:10", "10:30", "13:20", "15:40", "18:00"]
       }
     }
+  },
+  {
+    "id": "l-uo1-kossodo",
+    "number": "UO1",
+    "category": "speciale",
+    "from": "Cité universitaire de Kossodo",
+    "to": "SIAO",
+    "via": "UO1",
+    "stopIds": [
+      "cour-de-la-cite", "mosquee-vendredi-kossodo", "tan-aliz",
+      "boulangerie-somgande", "echangeur-est", "lto", "uo1", "isig-siege",
+      "pharmacie-nemadis", "siao"
+    ]
+  },
+  {
+    "id": "l-uo1-patte-doie",
+    "number": "UO1",
+    "category": "speciale",
+    "from": "Cité universitaire de la Patte d'oie",
+    "to": "UO1",
+    "via": "SIAO",
+    "stopIds": [
+      "cite-patte-doie", "echangeur-ouaga-2000", "cma-du-30", "siao",
+      "pediatrie-charles-de-gaulle", "tsr", "uo1"
+    ]
+  },
+  {
+    "id": "l-uo1-larlee",
+    "number": "UO1",
+    "category": "speciale",
+    "from": "Cité Larlée",
+    "to": "UO1",
+    "stopIds": [
+      "larle", "staf-cite-brigitte-pros", "marien-ngouabi", "sobca", "uo1"
+    ]
   }
 ]

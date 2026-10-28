@@ -32,14 +32,18 @@ const hasCoords = (stop: Stop | undefined): stop is LocatedStop =>
 
 // ===== 4. COMPOSANT PRINCIPAL =====
 export default function BusMap() {
-  // --- 4a. ÉTAT : quelle ligne est sélectionnée (null = aucune) ---
+   // --- 4a. ÉTAT : quelle ligne est sélectionnée (null = aucune) ---
   const [selectedLineId, setSelectedLineId] = useState<string | null>(null);
-    // L'heure actuelle et le type de jour (jour ouvrable, samedi, dimanche/férié)
-  const now = new Date();
-  const dayType = getDayType(now);
 
   // La ligne sélectionnée (undefined si aucune)
   const selectedLine = lines.find((line) => line.id === selectedLineId);
+
+  // L'heure actuelle et le type de jour (jour ouvrable, samedi, dimanche/férié)
+  const now = new Date();
+  const dayType = getDayType(now);
+
+  // Horaires de la ligne sélectionnée (undefined si pas encore disponibles)
+  const timetable = selectedLine?.timetable;
 
   return (
     // --- 4b. MISE EN PAGE : panneau à gauche + carte à droite ---
@@ -55,7 +59,8 @@ export default function BusMap() {
         }}
       >
         <h2>Lignes</h2>
-        <p>Tarif : {FARE_FCFA} F sur toutes les lignes</p>
+     {/* Tarif : valable pour les lignes ordinaires seulement (info du site SOTRACO) */}
+        <p>Ticket à la course : {FARE_FCFA} F sur les lignes ordinaires</p>
 
         {/* Un bouton par ligne : un clic sélectionne ou désélectionne */}
         {lines.map((line, index) => (
@@ -83,36 +88,47 @@ export default function BusMap() {
         {/* Liste des arrêts, seulement si une ligne est sélectionnée */}
         {selectedLine && (
           <>
-            {/* Prochains départs, dans les deux sens */}
-            <h3>Prochains départs</h3>
-            <p>Horaire : {DAY_LABELS[dayType]}</p>
+            {/* Prochains départs, dans les deux sens (si les horaires existent) */}
+            {timetable ? (
+              <>
+               {/* Les heures sont celles des départs aux terminus, pas aux arrêts intermédiaires */}
+                <h3>Prochains départs au terminus</h3>
+                <p>Horaire : {DAY_LABELS[dayType]}</p>
+                <p style={{ fontSize: 12, color: "#666" }}>
+                  Heures de départ aux terminus, elles peuvent varier selon
+                  la circulation.
+                </p>
 
-            {(["forward", "backward"] as const).map((direction) => {
-              const departures = getNextDepartures(
-                selectedLine.timetable[dayType][direction],
-                now,
-              );
-              return (
-                <div key={direction}>
-                  <strong>
-                    {direction === "forward"
-                      ? `${selectedLine.from} → ${selectedLine.to}`
-                      : `${selectedLine.to} → ${selectedLine.from}`}
-                  </strong>
-                  {departures.length === 0 ? (
-                    <p>Plus de départ aujourd'hui</p>
-                  ) : (
-                    <ul>
-                      {departures.map((d) => (
-                        <li key={d.time}>
-                          {d.time} (dans {d.inMinutes} min)
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              );
-            })}
+                {(["forward", "backward"] as const).map((direction) => {
+                  const departures = getNextDepartures(
+                    timetable[dayType][direction],
+                    now,
+                  );
+                  return (
+                    <div key={direction}>
+                      <strong>
+                        {direction === "forward"
+                          ? `${selectedLine.from} → ${selectedLine.to}`
+                          : `${selectedLine.to} → ${selectedLine.from}`}
+                      </strong>
+                      {departures.length === 0 ? (
+                        <p>Plus de départ aujourd'hui</p>
+                      ) : (
+                        <ul>
+                          {departures.map((d) => (
+                            <li key={d.time}>
+                              {d.time} (dans {d.inMinutes} min)
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <p>Horaires bientôt disponibles.</p>
+            )}
             
             <h3>Arrêts</h3>
             <ol>
@@ -122,6 +138,10 @@ export default function BusMap() {
             </ol>
           </>
         )}
+          {/* Abréviations utilisées sur le site de la SOTRACO */}
+          <p style={{ fontSize: 12, color: "#666", marginTop: 24 }}>
+            UJKZ : Université Joseph Ki-Zerbo
+          </p>
       </aside>
 
       {/* ===== CARTE À DROITE ===== */}

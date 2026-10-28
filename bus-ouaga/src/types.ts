@@ -27,5 +27,6 @@ export interface Line {
   to: string;
   via?: string;
   stopIds: string[];
-  timetable: Record<DayType, DayTimetable>;
+    // Horaires : optionnels, car on ne les a pas encore pour toutes les lignes
+  timetable?: Record<DayType, DayTimetable>;
 }

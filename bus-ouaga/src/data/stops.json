@@ -18,6 +18,24 @@
   { "id": "dg-police-nationale", "name": "DG Police Nationale" },
   { "id": "sonapost-siege", "name": "SONAPOST siège" },
   { "id": "maison-du-peuple", "name": "Maison du peuple" },
-  { "id": "naba-koom", "name": "Terminus Naba Koom" }
+  { "id": "naba-koom", "name": "Terminus Naba Koom" },
   
+  { "id": "cour-de-la-cite", "name": "Cour de la cité" },
+  { "id": "mosquee-vendredi-kossodo", "name": "Mosquée de vendredi de KOSSODO" },
+  { "id": "tan-aliz", "name": "Tan Aliz" },
+  { "id": "boulangerie-somgande", "name": "Boulangerie Somgandé" },
+  { "id": "echangeur-est", "name": "Échangeur de l'Est" },
+  { "id": "lto", "name": "LTO" },
+  { "id": "uo1", "name": "UO1" },
+  { "id": "isig-siege", "name": "ISIG siège" },
+  { "id": "pharmacie-nemadis", "name": "Pharmacie Nemadis" },
+  { "id": "cite-patte-doie", "name": "Cité universitaire de la Patte d'oie" },
+  { "id": "echangeur-ouaga-2000", "name": "Échangeur Ouaga 2000 (route de Pô)" },
+  { "id": "cma-du-30", "name": "CMA du 30" },
+  { "id": "pediatrie-charles-de-gaulle", "name": "Pédiatrie Charles de Gaulle" },
+  { "id": "tsr", "name": "TSR" },
+  { "id": "larle", "name": "Larlé" },
+  { "id": "staf-cite-brigitte-pros", "name": "STAF (cité Brigitte PROS)" },
+  { "id": "marien-ngouabi", "name": "Marien N'gouabi" },
+  { "id": "sobca", "name": "SOBCA" }
 ]
