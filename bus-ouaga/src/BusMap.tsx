@@ -22,7 +22,10 @@ const lines = linesData as Line[];
 const stopsById = new Map(stops.map((stop) => [stop.id, stop]));
 
 // Une couleur par ligne (on recommence au début s'il y a plus de lignes)
-const lineColors = ["#e63946", "#2a9d8f", "#f4a261", "#457b9d"];
+const lineColors = [
+  "#e63946", "#2a9d8f", "#f4a261", "#457b9d",
+  "#8338ec", "#fb5607", "#06a77d", "#6c757d",
+];
 
 // ===== 3. OUTIL : vérifier qu'un arrêt a des coordonnées GPS =====
 type LocatedStop = Stop & { lat: number; lng: number };
@@ -141,6 +144,9 @@ export default function BusMap() {
           {/* Abréviations utilisées sur le site de la SOTRACO */}
           <p style={{ fontSize: 12, color: "#666", marginTop: 24 }}>
             UJKZ : Université Joseph Ki-Zerbo
+          </p>
+          <p style={{ fontSize: 12, color: "#666" }}>
+          UTS : Université Thomas Sankara
           </p>
       </aside>
 

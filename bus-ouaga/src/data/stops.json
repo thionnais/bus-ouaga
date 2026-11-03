@@ -68,8 +68,8 @@
   {
     "id": "av-charles-de-gaulle",
     "name": "Av. Charles de Gaulle",
-    "lat": 12.37546,
-    "lng": -1.47347
+    "lat": 12.37521,
+    "lng": -1.47346
   },
   {
     "id": "sp-cnls",
@@ -226,5 +226,47 @@
     "name": "SOBCA",
     "lat": 12.37064,
     "lng": -1.52267
+  },
+  {
+    "id": "chu-charles-de-gaulle",
+    "name": "CHU Charles de Gaulle",
+    "lat": 12.37546,
+    "lng": -1.47347
+  },
+  {
+    "id": "carrefour-saaba",
+    "name": "Carrefour de Saaba",
+    "lat": 12.4,
+    "lng": -1.44351
+  },
+  {
+    "id": "bargo",
+    "name": "Bargo",
+    "lat": 12.41358,
+    "lng": -1.41464
+  },
+  {
+    "id": "peage",
+    "name": "Péage",
+    "lat": 12.43988,
+    "lng": -1.35953
+  },
+  {
+    "id": "universite-thomas-sankara",
+    "name": "Université Thomas Sankara",
+    "lat": 12.47264,
+    "lng": -1.34308
+  },
+  {
+    "id": "chu-yalgado-ouedraogo",
+    "name": "CHU Yalgado Ouédraogo",
+    "lat": 12.38289,
+    "lng": -1.50494
+  },
+  {
+    "id": "enaref",
+    "name": "ENAREF",
+    "lat": 12.3907,
+    "lng": -1.47914
   }
 ]

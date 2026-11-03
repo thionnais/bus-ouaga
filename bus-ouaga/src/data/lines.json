@@ -79,5 +79,38 @@
     "stopIds": [
       "larle", "staf-cite-brigitte-pros", "marien-ngouabi", "sobca", "uo1"
     ]
+  },
+    {
+    "id": "l-uts-axe1",
+    "number": "UTS Axe 1",
+    "category": "speciale",
+    "from": "UO1",
+    "to": "Université Thomas Sankara",
+    "stopIds": [
+      "uo1", "chu-charles-de-gaulle", "echangeur-est", "carrefour-saaba",
+      "bargo", "peage", "universite-thomas-sankara"
+    ]
+  },
+  {
+    "id": "l-uts-axe2",
+    "number": "UTS Axe 2",
+    "category": "speciale",
+    "from": "SIAO",
+    "to": "Université Thomas Sankara",
+    "stopIds": [
+      "siao", "chu-charles-de-gaulle", "echangeur-est", "carrefour-saaba",
+      "bargo", "peage", "universite-thomas-sankara"
+    ]
+  },
+  {
+    "id": "l-uts-axe3",
+    "number": "UTS Axe 3",
+    "category": "speciale",
+    "from": "CHU Yalgado Ouédraogo",
+    "to": "Université Thomas Sankara",
+    "stopIds": [
+      "chu-yalgado-ouedraogo", "enaref", "echangeur-est", "carrefour-saaba",
+      "bargo", "peage", "universite-thomas-sankara"
+    ]
   }
 ]
