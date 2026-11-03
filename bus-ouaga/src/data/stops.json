@@ -1,41 +1,230 @@
 [
-  { "id": "sogel-b", "name": "Station SOGEL B" },
-  { "id": "palais-justice", "name": "Palais de justice" },
-  { "id": "lycee-thomas-sankara", "name": "Lycée Thomas Sankara" },
-  { "id": "clinique-kassam", "name": "Clinique KASSAM" },
-  { "id": "pharmacie-magnificat", "name": "Pharmacie Magnificat" },
-  { "id": "station-fama", "name": "Station FAMA" },
-  { "id": "sogel-b-ancien-terminus", "name": "SOGEL B ancien terminus" },
-  { "id": "district-sanitaire-bogodogo", "name": "District sanitaire de Bogodogo" },
-  { "id": "siao", "name": "SIAO" },
-  { "id": "maison-de-la-femme", "name": "Maison de la Femme" },
-  { "id": "hopital-pediatrique", "name": "Hôpital pédiatrique" },
-  { "id": "av-charles-de-gaulle", "name": "Av. Charles de Gaulle" },
-  { "id": "sp-cnls", "name": "SP/CNLS" },
-  { "id": "ost", "name": "OST" },
-  { "id": "av-independance", "name": "Av. de l'indépendance" },
-  { "id": "tresor-public", "name": "Trésor public" },
-  { "id": "dg-police-nationale", "name": "DG Police Nationale" },
-  { "id": "sonapost-siege", "name": "SONAPOST siège" },
-  { "id": "maison-du-peuple", "name": "Maison du peuple" },
-  { "id": "naba-koom", "name": "Terminus Naba Koom" },
-  
-  { "id": "cour-de-la-cite", "name": "Cour de la cité" },
-  { "id": "mosquee-vendredi-kossodo", "name": "Mosquée de vendredi de KOSSODO" },
-  { "id": "tan-aliz", "name": "Tan Aliz" },
-  { "id": "boulangerie-somgande", "name": "Boulangerie Somgandé" },
-  { "id": "echangeur-est", "name": "Échangeur de l'Est" },
-  { "id": "lto", "name": "LTO" },
-  { "id": "uo1", "name": "UO1" },
-  { "id": "isig-siege", "name": "ISIG siège" },
-  { "id": "pharmacie-nemadis", "name": "Pharmacie Nemadis" },
-  { "id": "cite-patte-doie", "name": "Cité universitaire de la Patte d'oie" },
-  { "id": "echangeur-ouaga-2000", "name": "Échangeur Ouaga 2000 (route de Pô)" },
-  { "id": "cma-du-30", "name": "CMA du 30" },
-  { "id": "pediatrie-charles-de-gaulle", "name": "Pédiatrie Charles de Gaulle" },
-  { "id": "tsr", "name": "TSR" },
-  { "id": "larle", "name": "Larlé" },
-  { "id": "staf-cite-brigitte-pros", "name": "STAF (cité Brigitte PROS)" },
-  { "id": "marien-ngouabi", "name": "Marien N'gouabi" },
-  { "id": "sobca", "name": "SOBCA" }
+  {
+    "id": "sogel-b",
+    "name": "Station SOGEL B",
+    "lat": 12.40033,
+    "lng": -1.44299
+  },
+  {
+    "id": "palais-justice",
+    "name": "Palais de justice",
+    "lat": 12.36983,
+    "lng": -1.51955
+  },
+  {
+    "id": "lycee-thomas-sankara",
+    "name": "Lycée Thomas Sankara",
+    "lat": 12.32247,
+    "lng": -1.46533
+  },
+  {
+    "id": "clinique-kassam",
+    "name": "Clinique KASSAM",
+    "lat": 12.32534,
+    "lng": -1.46986
+  },
+  {
+    "id": "pharmacie-magnificat",
+    "name": "Pharmacie Magnificat",
+    "lat": 12.3286,
+    "lng": -1.47694
+  },
+  {
+    "id": "station-fama",
+    "name": "Station FAMA",
+    "lat": 12.32479,
+    "lng": -1.48139
+  },
+  {
+    "id": "sogel-b-ancien-terminus",
+    "name": "SOGEL B ancien terminus",
+    "lat": 12.32754,
+    "lng": -1.48565
+  },
+  {
+    "id": "district-sanitaire-bogodogo",
+    "name": "District sanitaire de Bogodogo",
+    "lat": 12.34022,
+    "lng": -1.49577
+  },
+  {
+    "id": "siao",
+    "name": "SIAO",
+    "lat": 12.34837,
+    "lng": -1.49069
+  },
+  {
+    "id": "maison-de-la-femme",
+    "name": "Maison de la Femme",
+    "lat": 12.36669,
+    "lng": -1.47877
+  },
+  {
+    "id": "hopital-pediatrique",
+    "name": "Hôpital pédiatrique",
+    "lat": 12.37417,
+    "lng": -1.47294
+  },
+  {
+    "id": "av-charles-de-gaulle",
+    "name": "Av. Charles de Gaulle",
+    "lat": 12.37546,
+    "lng": -1.47347
+  },
+  {
+    "id": "sp-cnls",
+    "name": "SP/CNLS",
+    "lat": 12.37878,
+    "lng": -1.50894
+  },
+  {
+    "id": "ost",
+    "name": "OST",
+    "lat": 12.37909,
+    "lng": -1.51023
+  },
+  {
+    "id": "av-independance",
+    "name": "Av. de l'indépendance",
+    "lat": 12.37293,
+    "lng": -1.51246
+  },
+  {
+    "id": "tresor-public",
+    "name": "Trésor public",
+    "lat": 12.37214,
+    "lng": -1.5127
+  },
+  {
+    "id": "dg-police-nationale",
+    "name": "DG Police Nationale",
+    "lat": 12.36083,
+    "lng": -1.5408
+  },
+  {
+    "id": "sonapost-siege",
+    "name": "SONAPOST siège",
+    "lat": 12.3712,
+    "lng": -1.52086
+  },
+  {
+    "id": "maison-du-peuple",
+    "name": "Maison du peuple",
+    "lat": 12.37078,
+    "lng": -1.52271
+  },
+  {
+    "id": "naba-koom",
+    "name": "Terminus Naba Koom",
+    "lat": 12.37262,
+    "lng": -1.52689
+  },
+  {
+    "id": "cour-de-la-cite",
+    "name": "Cour de la cité",
+    "lat": 12.42876,
+    "lng": -1.47048
+  },
+  {
+    "id": "mosquee-vendredi-kossodo",
+    "name": "Mosquée de vendredi de KOSSODO",
+    "lat": 12.419,
+    "lng": -1.47159
+  },
+  {
+    "id": "tan-aliz",
+    "name": "Tan Aliz",
+    "lat": 12.41544,
+    "lng": -1.47581
+  },
+  {
+    "id": "boulangerie-somgande",
+    "name": "Boulangerie Somgandé",
+    "lat": 12.40546,
+    "lng": -1.48768
+  },
+  {
+    "id": "echangeur-est",
+    "name": "Échangeur de l'Est",
+    "lat": 12.39599,
+    "lng": -1.47125
+  },
+  {
+    "id": "lto",
+    "name": "LTO",
+    "lat": 12.38333,
+    "lng": -1.49651
+  },
+  {
+    "id": "uo1",
+    "name": "UO1",
+    "lat": 12.37784,
+    "lng": -1.49664
+  },
+  {
+    "id": "isig-siege",
+    "name": "ISIG siège",
+    "lat": 12.36234,
+    "lng": -1.49801
+  },
+  {
+    "id": "pharmacie-nemadis",
+    "name": "Pharmacie Nemadis",
+    "lat": 12.3565,
+    "lng": -1.49102
+  },
+  {
+    "id": "cite-patte-doie",
+    "name": "Cité universitaire de la Patte d'oie",
+    "lat": 12.3309,
+    "lng": -1.51726
+  },
+  {
+    "id": "echangeur-ouaga-2000",
+    "name": "Échangeur Ouaga 2000 (route de Pô)",
+    "lat": 12.32702,
+    "lng": -1.49689
+  },
+  {
+    "id": "cma-du-30",
+    "name": "CMA du 30",
+    "lat": 12.33632,
+    "lng": -1.48953
+  },
+  {
+    "id": "pediatrie-charles-de-gaulle",
+    "name": "Pédiatrie Charles de Gaulle",
+    "lat": 12.37692,
+    "lng": -1.47114
+  },
+  {
+    "id": "tsr",
+    "name": "TSR",
+    "lat": 12.32711,
+    "lng": -1.51465
+  },
+  {
+    "id": "larle",
+    "name": "Larlé",
+    "lat": 12.37383,
+    "lng": -1.53962
+  },
+  {
+    "id": "staf-cite-brigitte-pros",
+    "name": "STAF (cité Brigitte PROS)",
+    "lat": 12.37274,
+    "lng": -1.53798
+  },
+  {
+    "id": "marien-ngouabi",
+    "name": "Marien N'gouabi",
+    "lat": 12.36946,
+    "lng": -1.53303
+  },
+  {
+    "id": "sobca",
+    "name": "SOBCA",
+    "lat": 12.37064,
+    "lng": -1.52267
+  }
 ]
