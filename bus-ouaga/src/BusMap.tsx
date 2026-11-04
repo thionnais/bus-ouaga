@@ -1,11 +1,12 @@
 // ===== 1. IMPORTS : les outils dont on a besoin =====
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   MapContainer,
   TileLayer,
   CircleMarker,
   Popup,
   Polyline,
+  useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import type { Stop, Line } from "./types";
@@ -32,6 +33,20 @@ type LocatedStop = Stop & { lat: number; lng: number };
 
 const hasCoords = (stop: Stop | undefined): stop is LocatedStop =>
   stop !== undefined && stop.lat !== undefined && stop.lng !== undefined;
+// ===== 3b. COMPOSANT : cadre la carte sur la ligne sélectionnée =====
+// Il n'affiche rien : il commande la carte quand la liste de positions change.
+function FitToLine({ positions }: { positions: [number, number][] }) {
+  const map = useMap(); // accès à la carte Leaflet
+
+  useEffect(() => {
+    // On ne zoome que s'il y a au moins deux points à encadrer
+    if (positions.length >= 2) {
+      map.fitBounds(positions, { padding: [40, 40] }); // marge de 40 px
+    }
+  }, [map, positions]);
+
+  return null;
+}
 
 // ===== 4. COMPOSANT PRINCIPAL =====
 export default function BusMap() {
@@ -40,6 +55,18 @@ export default function BusMap() {
 
   // La ligne sélectionnée (undefined si aucune)
   const selectedLine = lines.find((line) => line.id === selectedLineId);
+  // Positions des arrêts de la ligne sélectionnée (useMemo : recalculé seulement
+  // quand la ligne change, sinon la carte se recadrerait à chaque affichage)
+  const selectedPositions = useMemo(
+    () =>
+      selectedLine
+        ? selectedLine.stopIds
+            .map((id) => stopsById.get(id))
+            .filter(hasCoords)
+            .map((stop) => [stop.lat, stop.lng] as [number, number])
+        : [],
+    [selectedLine],
+  );
 
   // L'heure actuelle et le type de jour (jour ouvrable, samedi, dimanche/férié)
   const now = new Date();
@@ -162,7 +189,9 @@ export default function BusMap() {
             attribution="&copy; OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-
+          {/* Cadre la carte sur la ligne choisie dans le panneau */}
+          <FitToLine positions={selectedPositions} />
+          
           {/* Tracé de chaque ligne (seulement avec les arrêts géolocalisés) */}
           {lines.map((line, index) => {
             const positions = line.stopIds
