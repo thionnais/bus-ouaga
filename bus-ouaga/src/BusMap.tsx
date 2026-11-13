@@ -14,6 +14,8 @@ import { FARE_FCFA } from "./constants";
 import stopsData from "./data/stops.json";
 import linesData from "./data/lines.json";
 import { getDayType, getNextDepartures, DAY_LABELS } from "./timetable";
+import { findNearestStops, formatDistance } from "./geo";
+import type { NearbyStop } from "./geo";
 
 // ===== 2. DONNÉES : on lit les fichiers JSON =====
 const stops = stopsData as Stop[];
@@ -33,6 +35,15 @@ type LocatedStop = Stop & { lat: number; lng: number };
 
 const hasCoords = (stop: Stop | undefined): stop is LocatedStop =>
   stop !== undefined && stop.lat !== undefined && stop.lng !== undefined;
+
+// ===== 3c. OUTIL : les lignes qui passent par un arrêt =====
+// Set enlève les doublons (sinon on lirait "UO1, UO1, UO1")
+function linesAtStop(stopId: string): string {
+  const numbers = lines
+    .filter((line) => line.stopIds.includes(stopId))
+    .map((line) => line.number);
+  return [...new Set(numbers)].join(", ");
+}
 // ===== 3b. COMPOSANT : cadre la carte sur la ligne sélectionnée =====
 // Il n'affiche rien : il commande la carte quand la liste de positions change.
 function FitToLine({ positions }: { positions: [number, number][] }) {
@@ -75,6 +86,35 @@ export default function BusMap() {
   // Horaires de la ligne sélectionnée (undefined si pas encore disponibles)
   const timetable = selectedLine?.timetable;
 
+  // --- 4a-bis. POSITION DE L'UTILISATRICE ET ARRÊTS PROCHES ---
+  const [nearby, setNearby] = useState<NearbyStop[]>([]);
+  const [userPos, setUserPos] = useState<[number, number] | null>(null);
+  const [geoMessage, setGeoMessage] = useState<string | null>(null);
+
+  // Demande la position au navigateur (une autorisation est demandée à l'utilisatrice)
+  function locateMe() {
+    if (!navigator.geolocation) {
+      setGeoMessage("La géolocalisation n'est pas disponible sur cet appareil.");
+      return;
+    }
+    setGeoMessage("Recherche de votre position...");
+
+    navigator.geolocation.getCurrentPosition(
+      // Succès : on garde la position et on calcule les arrêts proches
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setUserPos([latitude, longitude]);
+        setNearby(findNearestStops(latitude, longitude, stops));
+        setGeoMessage(null);
+      },
+      // Échec : refus de l'autorisation, pas de signal, etc.
+      () =>
+        setGeoMessage(
+          "Impossible d'obtenir votre position. Vérifiez que la localisation est autorisée.",
+        ),
+    );
+  }
+
   return (
     // --- 4b. MISE EN PAGE : panneau à gauche + carte à droite ---
     <div style={{ display: "flex", height: "100vh" }}>
@@ -91,6 +131,35 @@ export default function BusMap() {
         <h2>Lignes</h2>
      {/* Tarif : valable pour les lignes ordinaires seulement (info du site SOTRACO) */}
         <p>Ticket à la course : {FARE_FCFA} F sur les lignes ordinaires</p>
+
+        {/* Bouton : trouver les arrêts les plus proches de l'utilisatrice */}
+        <button
+          onClick={locateMe}
+          style={{ width: "100%", padding: 10, marginBottom: 12, cursor: "pointer" }}
+        >
+          Arrêts proches de moi
+        </button>
+        {geoMessage && <p>{geoMessage}</p>}
+
+               {/* Les 3 arrêts les plus proches, avec leur distance et leurs lignes */}
+        {nearby.length > 0 && (
+          <ul>
+            {nearby.map(({ stop, distance }) => (
+              <li key={stop.id} style={{ marginBottom: 8 }}>
+                <strong>{stop.name}</strong> : {formatDistance(distance)}
+                <br />
+                Lignes : {linesAtStop(stop.id)}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Honnêteté : ce n'est pas la distance à pied */}
+        {nearby.length > 0 && (
+          <p style={{ fontSize: 12, color: "#666" }}>
+            Distances à vol d'oiseau : le trajet à pied peut être plus long.
+          </p>
+        )}
 
         {/* Un bouton par ligne : un clic sélectionne ou désélectionne */}
         {lines.map((line, index) => (
@@ -225,6 +294,17 @@ export default function BusMap() {
               <Popup>{stop.name}</Popup>
             </CircleMarker>
           ))}
+         {/* Point vert : la position de l'utilisatrice */}
+          {userPos && (
+            <CircleMarker
+              center={userPos}
+              radius={10}
+              pathOptions={{ color: "#2b9348", fillOpacity: 0.8 }}
+            >
+              <Popup>Vous êtes ici</Popup>
+            </CircleMarker>
+          )}
+
         </MapContainer>
       </div>
     </div>
