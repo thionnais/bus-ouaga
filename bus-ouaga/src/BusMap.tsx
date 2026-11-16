@@ -7,7 +7,9 @@ import {
   Popup,
   Polyline,
   useMap,
+  ZoomControl,
 } from "react-leaflet";
+
 import "leaflet/dist/leaflet.css";
 import type { Stop, Line } from "./types";
 import { FARE_FCFA } from "./constants";
@@ -16,6 +18,7 @@ import linesData from "./data/lines.json";
 import { getDayType, getNextDepartures, DAY_LABELS } from "./timetable";
 import { findNearestStops, formatDistance } from "./geo";
 import type { NearbyStop } from "./geo";
+import FloatingPanel from "./FloatingPanel";
 
 // ===== 2. DONNÉES : on lit les fichiers JSON =====
 const stops = stopsData as Stop[];
@@ -117,25 +120,17 @@ export default function BusMap() {
 
   return (
     // --- 4b. MISE EN PAGE : panneau à gauche + carte à droite ---
-    <div style={{ display: "flex", height: "100vh" }}>
+        <div className="app">
       {/* ===== PANNEAU DE GAUCHE ===== */}
-      <aside
-        style={{
-          width: 280,
-          overflowY: "auto",
-          padding: 16,
-          boxSizing: "border-box",
-          fontFamily: "sans-serif",
-        }}
-      >
-        <h2>Lignes</h2>
-     {/* Tarif : valable pour les lignes ordinaires seulement (info du site SOTRACO) */}
+         <FloatingPanel title="Lignes">
+
+             {/* Tarif : valable pour les lignes ordinaires seulement (info du site SOTRACO) */}
         <p>Ticket à la course : {FARE_FCFA} F sur les lignes ordinaires</p>
 
         {/* Bouton : trouver les arrêts les plus proches de l'utilisatrice */}
         <button
           onClick={locateMe}
-          style={{ width: "100%", padding: 10, marginBottom: 12, cursor: "pointer" }}
+          style={{ width: "100%", padding: 6, marginBottom: 8, cursor: "pointer" }}
         >
           Arrêts proches de moi
         </button>
@@ -145,7 +140,7 @@ export default function BusMap() {
         {nearby.length > 0 && (
           <ul>
             {nearby.map(({ stop, distance }) => (
-              <li key={stop.id} style={{ marginBottom: 8 }}>
+              <li key={stop.id} style={{ marginBottom: 4 }}>
                 <strong>{stop.name}</strong> : {formatDistance(distance)}
                 <br />
                 Lignes : {linesAtStop(stop.id)}
@@ -171,8 +166,8 @@ export default function BusMap() {
             style={{
               display: "block",
               width: "100%",
-              marginBottom: 8,
-              padding: 10,
+              marginBottom: 4,
+              padding: 6,
               textAlign: "left",
               cursor: "pointer",
               border: `3px solid ${lineColors[index % lineColors.length]}`,
@@ -244,20 +239,24 @@ export default function BusMap() {
           <p style={{ fontSize: 12, color: "#666" }}>
           UTS : Université Thomas Sankara
           </p>
-      </aside>
+       </FloatingPanel>
 
       {/* ===== CARTE À DROITE ===== */}
-      <div style={{ flex: 1 }}>
-        <MapContainer
-          center={[12.37, -1.52]}
-          zoom={13}
-          style={{ height: "100%", width: "100%" }}
+       <div className="map-area">
+       <MapContainer
+        center={[12.37, -1.52]}
+        zoom={13}
+        zoomControl={false}
+        style={{ height: "100%", width: "100%" }}
         >
           {/* Fond de carte OpenStreetMap */}
           <TileLayer
             attribution="&copy; OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          
+         {/* Boutons + et − déplacés en bas à droite, hors du chemin du panneau */}
+          <ZoomControl position="bottomright" />
           {/* Cadre la carte sur la ligne choisie dans le panneau */}
           <FitToLine positions={selectedPositions} />
           

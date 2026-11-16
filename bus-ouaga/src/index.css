@@ -1,4 +1,57 @@
+/* ===== BASE : la page occupe tout l'écran ===== */
 html, body, #root {
   margin: 0;
   height: 100%;
+}
+
+/* Fond gris clair : il se voit dans les marges autour de la carte */
+body {
+  background: #e9ecef;
+}
+
+/* ===== MISE EN PAGE : la carte remplit l'écran, le panneau flotte au-dessus ===== */
+.app {
+  position: relative; /* repère pour le panneau flottant */
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh; /* hauteur réellement visible sur téléphone */
+  padding: 6px 4px; /* haut et bas : 6 px, gauche et droite : 4 px */
+  overflow: hidden;
+}
+
+.map-area {
+  height: 100%;
+  border-radius: 8px; /* coins arrondis pour que les marges soient plus jolies */
+  overflow: hidden;
+}
+
+/* ===== PANNEAU : texte et espacements réduits ===== */
+.panel-content {
+  font-size: 13px;
+  line-height: 1.35;
+}
+.panel-content h3 {
+  font-size: 14px;
+  margin: 10px 0 4px;
+}
+.panel-content p {
+  margin: 4px 0;
+}
+.panel-content ul,
+.panel-content ol {
+  margin: 4px 0;
+  padding-left: 18px;
+}
+.panel-content button {
+  font-size: 13px;
+}
+
+/* ===== BOUTONS : petits à la souris, grands au doigt ===== */
+.app button {
+  min-height: 32px;
+}
+@media (pointer: coarse) {
+  .app button {
+    min-height: 44px; /* taille confortable pour un doigt */
+  }
 }
