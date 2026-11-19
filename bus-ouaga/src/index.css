@@ -1,31 +1,152 @@
-/* ===== BASE : la page occupe tout l'écran ===== */
+/* ===== 1. BASE ===== */
 html, body, #root {
   margin: 0;
   height: 100%;
 }
-
-/* Fond gris clair : il se voit dans les marges autour de la carte */
 body {
-  background: #e9ecef;
+  background: #2d6a4f; /* vert forêt : visible dans les marges */
+  font-family: sans-serif;
 }
 
-/* ===== MISE EN PAGE : la carte remplit l'écran, le panneau flotte au-dessus ===== */
-.app {
-  position: relative; /* repère pour le panneau flottant */
+/* ===== 2. CADRE VERT NATURE : en-tête, zone centrale, pied de page ===== */
+.shell {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   height: 100vh;
   height: 100dvh; /* hauteur réellement visible sur téléphone */
-  padding: 6px 4px; /* haut et bas : 6 px, gauche et droite : 4 px */
-  overflow: hidden;
+  padding: 6px 4px; /* haut/bas : 6 px, gauche/droite : 4 px */
+  background: #2d6a4f;
 }
 
+/* ===== 3. EN-TÊTE ET MENU ===== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 4px 10px;
+  background: #1b4332; /* vert très foncé */
+  color: #d8f3dc;
+  border-radius: 8px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+}
+.menu {
+  display: flex;
+  gap: 4px;
+}
+.menu a {
+  color: #d8f3dc;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.menu a.active {
+  background: #95d5b2; /* vert clair : la page affichée */
+  color: #1b4332;
+  font-weight: bold;
+}
+
+/* ===== 4. ZONE CENTRALE : contient la carte ou une page ===== */
+.content {
+  flex: 1;
+  min-height: 0; /* permet à la zone de rétrécir au lieu de déborder */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* La page "Carte" (BusMap) remplit toute la zone centrale */
+.app {
+  position: relative; /* repère pour le panneau flottant */
+  height: 100%;
+}
 .map-area {
   height: 100%;
-  border-radius: 8px; /* coins arrondis pour que les marges soient plus jolies */
-  overflow: hidden;
 }
 
-/* ===== PANNEAU : texte et espacements réduits ===== */
+/* ===== 5. PIED DE PAGE ===== */
+.footer {
+  padding: 5px 10px;
+  background: #1b4332;
+  color: #b7e4c7;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ===== 6. PAGES "LIGNES" ET "À PROPOS" ===== */
+.page {
+  height: 100%;
+  overflow-y: auto; /* la page défile, pas le cadre */
+  box-sizing: border-box;
+  padding: 16px;
+  background: #f6fbf7;
+  color: #1b2a22;
+}
+.page-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+.page h1 {
+  margin-top: 0;
+  color: #1b4332;
+}
+.page a {
+  color: #00793d;
+}
+.line-card {
+  background: #fff;
+  border: 1px solid #cfe8d8;
+  border-left: 5px solid #00a651; /* le vert SOTRACO */
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 12px 0;
+}
+.line-card h2 {
+  margin: 0;
+  font-size: 17px;
+}
+.line-card h3 {
+  margin: 10px 0 2px;
+  font-size: 14px;
+}
+.line-card summary {
+  cursor: pointer;
+  padding: 6px 0;
+  font-weight: 600;
+}
+.muted {
+  color: #5b6b62;
+  margin: 2px 0 8px;
+  font-size: 13px;
+}
+
+/* ===== 7. PANNEAU FLOTTANT : texte et espacements réduits ===== */
 .panel-content {
   font-size: 13px;
   line-height: 1.35;
@@ -46,12 +167,26 @@ body {
   font-size: 13px;
 }
 
-/* ===== BOUTONS : petits à la souris, grands au doigt ===== */
+/* ===== 8. BOUTONS : petits à la souris, grands au doigt ===== */
 .app button {
   min-height: 32px;
 }
 @media (pointer: coarse) {
   .app button {
-    min-height: 44px; /* taille confortable pour un doigt */
+    min-height: 44px;
+  }
+  .menu a {
+    padding: 12px;
+  }
+}
+
+/* ===== 9. PETITS ÉCRANS : on garde l'essentiel ===== */
+@media (max-width: 480px) {
+  .brand-name,
+  .footer-extra {
+    display: none; /* le nom et la fin du pied de page disparaissent */
+  }
+  .menu a {
+    padding: 8px 10px;
   }
 }
