@@ -17,6 +17,8 @@ export interface Stop {
   lat?: number;
   lng?: number;
   neighborhood?: string;
+  // Autres noms sous lesquels cet arrêt apparaît sur le site de la SOTRACO
+  aliases?: string[];
 }
 
 export interface Line {

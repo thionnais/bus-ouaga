@@ -112,5 +112,18 @@
       "chu-yalgado-ouedraogo", "enaref", "echangeur-est", "carrefour-saaba",
       "bargo", "peage", "universite-thomas-sankara"
     ]
+  },
+    {
+    "id": "l-intercommunale-pabre",
+    "number": "Pabré",
+    "category": "intercommunale",
+    "from": "Terminus Mémorial Thomas Sankara (MTS)",
+    "to": "Mosquée de vendredi de Pabré",
+    "stopIds": [
+      "mts", "carfo-paspanga", "rtb", "rond-point-nations-unies",
+      "maison-du-peuple", "place-de-la-nation", "marien-ngouabi",
+      "lycee-kolog-naba", "cma-paul-vi", "seminaire-kossoghin",
+      "lycee-alliance-chretienne", "pmk", "mosquee-vendredi-pabre"
+    ]
   }
 ]

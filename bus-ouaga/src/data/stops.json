@@ -219,7 +219,10 @@
     "id": "marien-ngouabi",
     "name": "Marien N'gouabi",
     "lat": 12.36946,
-    "lng": -1.53303
+    "lng": -1.53303,
+    "aliases": [
+      "Lycée Marien N'Gouabi"
+    ]
   },
   {
     "id": "sobca",
@@ -268,5 +271,71 @@
     "name": "ENAREF",
     "lat": 12.3907,
     "lng": -1.47914
+  },
+  {
+    "id": "mts",
+    "name": "Terminus Mémorial Thomas Sankara (MTS)",
+    "lat": 12.37718,
+    "lng": -1.50872
+  },
+  {
+    "id": "carfo-paspanga",
+    "name": "Carfo Paspanga",
+    "lat": 12.37909,
+    "lng": -1.50998
+  },
+  {
+    "id": "rtb",
+    "name": "RTB",
+    "lat": 12.37427,
+    "lng": -1.5055
+  },
+  {
+    "id": "rond-point-nations-unies",
+    "name": "Rond-point des Nations unies",
+    "lat": 12.37181,
+    "lng": -1.51828
+  },
+  {
+    "id": "place-de-la-nation",
+    "name": "Place de la Nation",
+    "lat": 12.36833,
+    "lng": -1.52918
+  },
+  {
+    "id": "lycee-kolog-naba",
+    "name": "Lycée Kolog Naba",
+    "lat": 12.38,
+    "lng": -1.54855
+  },
+  {
+    "id": "cma-paul-vi",
+    "name": "CMA Paul VI",
+    "lat": 12.39915,
+    "lng": -1.55569
+  },
+  {
+    "id": "seminaire-kossoghin",
+    "name": "Séminaire de Kossoghin",
+    "lat": 12.40769,
+    "lng": -1.5542
+  },
+  {
+    "id": "lycee-alliance-chretienne",
+    "name": "Lycée de l'Alliance Chrétienne (LAC)",
+    "lat": 12.438,
+    "lng": -1.54887
+  },
+  {
+    "id": "pmk",
+    "name": "PMK",
+    "lat": 12.47759,
+    "lng": -1.5589
+  },
+  {
+    "id": "mosquee-vendredi-pabre",
+    "name": "Mosquée de vendredi de Pabré",
+    "lat": 12.51673,
+    "lng": -1.57251
   }
 ]
